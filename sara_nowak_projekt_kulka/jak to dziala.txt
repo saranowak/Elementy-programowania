@@ -1,0 +1,76 @@
+zmienne typu float:
+x - po³o¿enie kulki w poziomie (na pocz¹tku przyjmuje wartoœæ 100 pikseli)
+y - po³o¿enie kulki w pionie (na pocz¹tku przyjmuje wartoœæ 100 pikseli)
+xspeed - prêdkoœæ poruszania siê kulki w poziomie 
+yspeed - prêdkoœæ poruszania siê kulki w pionie
+	w funkcji drawBall:
+		redGradient
+		greenradient
+		blueGradient
+
+"chodzimy" kulk¹ klawiszami AWSD (na moim komputerze na strza³kach s¹ klawisze funkcyjne, st¹d ta decyzja)
+
+zmienne typu int:
+xSize - rozmiar kulki
+ySize - rozmiar kulki
+
+Zmienne systemowe:
+keyPressed (The boolean system variable keyPressed is true if any key is pressed and false if no keys are pressed )
+key -(The system variable key always contains the value of the most recent key on the keyboard that was used (either pressed or released). 
+width
+height
+
+
+PImage img; - zmienna img typu PImage
+
+
+funkcje zrobione przeze mnie:
+void drawBall()
+void moveRight()
+void moveLeft()
+void moveUp()
+void moveDown()
+
+funkcje u¿yte przeze mnie:
+setup
+size
+loadImage
+background
+smooth
+draw
+stroke
+fill
+ellipse
+switch 
+
+OPIS
+_______________________________________________________
+
+1. w funkcji "drawball" zmieniaj¹ siê kolory kulki podczas chodzenia (zale¿y to od po³o¿enia kulki). Funkcja ta ma 3 zmienne: redgradient, greengradient i blueagradient. Wszystkie s¹ typu float i wartoœæ ka¿dej z tych zmiennych jest obliczana na podstawie po³o¿enia (dziel¹c i mno¿¹c liczbê 256 przez wartoœæ po³o¿enia w pionie i poziomie
+
+2. Wype³nienie kulki jest wykonane za pomoc¹ funkcji "fill", która przyjmuje 3 zmienne (opisane wyzej jako gradienty: blue, green, red)
+
+3. Funkcj¹ "ellipse" kulka jest rysowana na planszy. 
+
+4. Funkcja "stroke" odpowiada za kolor krawêdzi kulki, który jest taki sam jak jej œrodek
+
+5. Funkcja "voidsetup" wykorzystywana raz, na pocz¹tku startu programu (moze byc tylko jedna). W tej funkcji ustawi³am rozmiar okna w planszy, dziêki funkcji "size" 640 x 640 p. tworzony jest obiekt
+
+6. PImage przechowuje w sobie obraz t³a. Ten obraz wykorzystany ejst jako t³o planszy (ustawi³am to w funkcji background)
+
+7. Pies jest za³adowany w funkcji "load image"
+
+8. Funkcja "smooth" wyg³adza obraz
+
+9. Funkcja "draw" (jako ta druga, która musi byæ w programie) zapêtla siê. I tu pojawia siê funkcja "drawball" (rysujemy kulkê) i póŸniej "switchkey" sprawdza czy jakiœ przycisk nie zosta³ wciœniêty
+
+10. I na podstawie funkcji (switchkey) - ca³y czas w funkcji draw- program decyduje w którym kierunku ruszyæ kulkê
+
+11. "case a":- gdy kluczem jest "a" (w lewo) wywo³ywana jest funkcja move left
+    "case w" w przypadku "w" wysyo³uje funkcjê move up, a je¿eli s "move down", "case d"- move right itd. ALE w przypadku kiedy nic nie wciskami na konsoli wypisywany jest tekst "move somewhere"
+-po ka¿dym 'case' jest 'break' (bo musi, bo inaczej wszystkie po kolei by siê wywo³ywa³y
+
+12.move right- metoda, która sprawdza czy jakikolwiek klawisz jest wciœniêty i czy po³o¿enie kulki w poziomie jest mniejsze od 'width' planszy. Innymi s³owy- sposób sprawdzania czy kulka nie wyjdzie poza planszêi i tego, aby kulk¹ da³o siê ruszaæ tylko, gdy klawisz jest wciœniêty
+Do wartoœci po³o¿enia kulki w poziomie dodawane jest xspeed, je¿eli powy¿sze warunki zosta³y spe³nione
+move left- analogicznie, tylko prêdkoœæ xspeed jest odejmowana od po³ozenia i jest sprawdzany warunek czy x nie ejst wiekszy od 0
+move up/down-analogicznie, ale zmienia siê y
